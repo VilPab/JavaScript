@@ -1,0 +1,16 @@
+<script type="text/javascript" >
+	function letrao(){
+	var cadena = prompt("Introduce una cadena");
+	var letra = prompt("Introduce una letra que buscar, o una cadena");
+	cadena= cadena.toLowerCase();
+	letra= letra.toLowerCase();
+	var contador=0;
+	var posicion = cadena.indexOf(letra);
+	while ( posicion != -1 ) {
+  		contador++;
+ 	    posicion = cadena.indexOf(letra,posicion+1);
+	}
+		alert("Se repite "+contador+" veces");
+	}
+	letrao();
+</script>

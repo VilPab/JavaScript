@@ -1,0 +1,14 @@
+<script type="text/javascript" >
+	function letrao(){
+	var cadena = prompt("Introduce una cadena");
+	cadena= cadena.toLowerCase();
+	var contador=0;
+	var posicion = cadena.indexOf("o");
+	while ( posicion != -1 ) {
+  		contador++;
+ 	    posicion = cadena.indexOf("o",posicion+1);
+	}
+		alert("Se repite "+contador+" veces");
+	}
+	letrao();
+</script>

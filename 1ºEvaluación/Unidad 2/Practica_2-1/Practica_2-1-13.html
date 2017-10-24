@@ -1,0 +1,25 @@
+<script type="text/javascript">
+
+function cadena(){
+  var cadena;
+  cadena = prompt("Introduce una cadena");
+  var encontrado= false;
+  var numeros="0123456789";
+
+  for(var i=0;i<numeros.length;i++){
+    for(var x=0;x<cadena.length;x++){
+       if(numeros.charAt(i)==cadena.charAt(x)){
+         encontrado=true;
+       }
+    }
+  }
+  if(encontrado){
+    document.write("La cadena no es una palabra, tiene numeros");
+  }else {
+    document.write("La cadena es una palabra, no tiene numeros");
+  }
+}
+
+cadena();
+
+</script>

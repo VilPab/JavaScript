@@ -1,0 +1,21 @@
+<script type="text/javascript">
+function capicua(campo) {
+var campo = campo;
+var longitud = campo.length;
+var correcto = true;
+
+for(var i=0;i<longitud;i++){
+  if(campo.charAt(i)!=campo.charAt(longitud-i-1)){
+    correcto=false;
+  }
+}
+return correcto;
+}
+var numero;
+numero= prompt("Introduzca un numero")
+if(capicua(numero)){
+  document.write(numero+" Es capicua")
+}else {
+  document.write(numero+" No es capicua")
+}
+</script>

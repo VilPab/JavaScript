@@ -1,0 +1,17 @@
+<script type="text/javascript">
+  function numero() {
+    var valor = prompt("Introduce un valor:");
+    var perfecto=0;
+    for(var i=1;i<valor;i++){
+      if(valor%i==0){
+        perfecto+=i;}
+      }
+      if(perfecto==valor){
+        document.write(valor+" es un numero perfecto");
+      }else {
+        document.write(valor+" no es un numero perfecto");
+      }
+    }
+  numero();
+
+  </script>

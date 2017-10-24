@@ -1,0 +1,44 @@
+<script type="text/javascript">
+
+function cadena(){
+  var cadena;
+  cadena = prompt("Introduce una cadena");
+  var encontrado= false;
+  var y=0;
+  var k=0;
+  var pos=0;
+  while(k<cadena.length){
+
+    pos=cadena.indexOf(" ");
+
+    pal=cadena.replace(" ","");
+
+    while(pos!=-1){
+
+      pos=cadena.indexOf(" ",pos+1);
+
+      cadena=cadena.replace(" ","");
+
+    }
+
+    k=k+1;
+
+  }
+  document.write(cadena);
+    for(var x=cadena.length-1;x>cadena.length/2;x--){
+
+      if(cadena.charAt(x)!=cadena.charAt(y)){
+        encontrado=true;
+
+    }
+    y++;
+  }
+  if(encontrado){
+    document.write("No es palindromo");
+  }else {
+    document.write("Es palindromo");
+  }
+}
+
+cadena();
+</script>

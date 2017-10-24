@@ -1,0 +1,28 @@
+<script type="text/javascript" >
+function primos () {
+	var primo = 0;
+	var contador=1;
+	var numero=2;
+	var prim=1;
+do{
+	while(contador!=numero){
+			if(numero%contador==0){
+			primo++;}
+			contador++;
+							} 	
+	if(primo<2 ){
+		document.write(numero+",");
+		primo=0;	
+		prim++;
+				}
+else{
+	primo=0;
+	}
+		
+	contador=1;
+	numero++;
+}while(prim<=100);
+	
+}
+primos();
+</script>

@@ -1,0 +1,74 @@
+Tipos de datos
+numerico 
+cadena plantilla de cadenas
+logico (true y false)
+Undefined
+Object
+Null
+
+Clase Number:
+var y = Number("Numero");
+
+Propiedades de la clase number
+MAX_VALUE
+MIN_VALUE
+NaN
+NEGATIVE_INFINITY
+POSITIVE_INFINITY
+
+Metodos
+
+toExponential([numeros-decimales])
+toFixed([numero-decimal);
+toString lo pasa a cadena.
+
+
+
+Tipo String
+
+var primero = new String("")
+var segundo = String("")
+var tercero="";
+lenght tamaño
+
+Metodos
+
+charAt(posicion)
+concat(lista de cadenas)
+indexOf(cadena ,[posicion]) principio fin
+lastIndexOf(cadena , posicion) fin prinipio
+includes(cadena , posicion) permite Nan
+substr(posicion, numero-caracteres)
+substring(posicion-1,posicion-2) devuelve string
+slice(posicion-1,posicion-2)
+toLowerCase()
+trim() quita espacios
+replace(cadena,cadenanueva) 
+toUpperCase()
+padEnd(longitud) devuelve una cadena de ese tamaño por el final con blancos
+padStart(longitud) devuelve la variable con blancos por el principio
+
+condicion? valor-1:valor-2
+var primero=13;
+var segundo=17;
+var mayor = primero>segundo?primero:segundo
+
+typeof devuelve el tipo de dato
+
+//comentario
+aqui no valdria
+
+/*
+	asdasd
+*/
+
+
+Sentencias
+alert(cadena); alerta
+window.alert(cadena); alerta 
+window.confirm(cadena); aceptar o cancelar , devuelve un valor
+prompt(cadena); cuadro de dialogo, pide una cadena
+windows.prompt(cadena);	
+console.log(cadena); muesta el log por consola
+document.write(cadena); carga en el body
+

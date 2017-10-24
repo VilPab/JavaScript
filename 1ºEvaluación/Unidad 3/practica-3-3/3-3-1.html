@@ -1,0 +1,29 @@
+
+<html>
+	<head>
+		
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+			var clave = "casa";
+			
+			//var	correcto=window.setInterval(comprobar,15000);
+				
+			var	correcto=window.setInterval("comprobar()",15000);
+			
+				function comprobar(){
+					var palabra = prompt("Introduzca la palabra clave");
+					if(palabra==clave){
+						clearInterval(correcto);
+					}
+			
+			}
+			
+		</script>
+		
+		
+		
+	</body>
+	
+</html>

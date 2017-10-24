@@ -1,0 +1,20 @@
+ 
+<script type="text/javascript" >
+	function letrao(){
+	var cadena = prompt("Introduce una cadena");
+	cadena= cadena.toLowerCase();
+	var contador=0;
+	var letra = ["a","e","i","o","u"];
+	for(var i=0;i<letra.length;i++){
+		
+	var posicion = cadena.indexOf(letra[i]);
+	while ( posicion != -1 ) {
+  		contador++;
+ 	    posicion = cadena.indexOf(letra[i],posicion+1);
+	}
+	}
+		var consonantes = cadena.length-contador;
+		document.write("Existen "+contador+" vocales y "+consonantes+" consonantes");
+			 }
+	letrao();
+</script>

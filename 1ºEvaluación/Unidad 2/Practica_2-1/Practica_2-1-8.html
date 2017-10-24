@@ -1,0 +1,14 @@
+<script type="text/javascript">
+  function numero() {
+    var valor = prompt("Introduce un valor:");
+
+    if(valor%4==0 && valor%100!=0){
+      document.write(valor+" Es Bisiesto")
+    }else if (valor%100==0 && valor%400==0) {
+      document.write(valor+" Es Bisiesto")
+    }else {
+      document.write(valor+" No es Bisiesto")
+    }
+  }
+  numero();
+</script>
