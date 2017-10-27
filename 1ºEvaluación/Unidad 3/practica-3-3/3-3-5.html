@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    var nueva;
+    var ancho=1000;
+    var alto=1000;
+    var cont=0;
+    var intervalo;
+    function abrir() {
+        nueva=window.open("3-3-3.html","_blank","fullscreen=0");
+       intervalo= window.setInterval(redimensionar,5000) ;
+    }
+    function redimensionar() {
+
+        nueva.window.resizeTo(ancho,alto);
+        cont+=1;
+        if(cont==5){
+            clearInterval(intervalo);
+        }
+        ancho-=200;
+        alto-=200;
+
+    }
+
+
+</script>
+<body>
+<input type="button" onclick="abrir()" name="Crear">
+</body>
+</html>
