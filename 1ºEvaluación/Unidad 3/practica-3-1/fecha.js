@@ -5,6 +5,7 @@ function validar(){
 	validada=new Date(fecha());
 	var a=validada.toLocaleDateString();
 	 alert(a);
+	 alert(validada.toDateString());
 	
 }
 function getValidada(){
@@ -146,6 +147,7 @@ function dia(){
               alert(validada.toLocaleTimeString);
               a=validada.toLocaleDateString();
               alert(a);
+              alert(validada.toDateString());
               
             } else {
               alert("Fecha no valida");
@@ -156,6 +158,7 @@ function dia(){
               validada.setDate(dia);
                a=validada.toLocaleDateString();
               alert(a);
+              alert(validada.toDateString());
 	}
 	
 }
@@ -169,6 +172,7 @@ function mes(){
               validada.setMonth(mes);
                a=validada.toLocaleDateString();
               alert(a);
+              alert(validada.toDateString());
 	}else{
 		alert("Fecha no valida");
               
@@ -184,6 +188,7 @@ function ano(){
 		alert("Fecha valida");
               validada.setFullYear(ano);
                a=validada.toLocaleDateString();
+    alert(validada.toDateString());
               alert(a);
 
 
@@ -195,4 +200,5 @@ function numeros(){
 	mes();
 	ano();
 	alert(validada.toLocaleDateString());
+    alert(validada.toDateString());
 }
