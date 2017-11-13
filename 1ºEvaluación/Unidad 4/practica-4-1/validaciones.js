@@ -72,7 +72,6 @@ function codigosControl( banco,sucursal,cuenta) {
 
     return control;
 }
-
 function calculoIBANEspanya(cuenta) {
 
 
@@ -124,7 +123,6 @@ function calculoIBANEspanya(cuenta) {
         return iban;
 
     }
-
 function getnumIBAN(letra) {
     ls_letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     return ls_letras.search(letra) + 10;
@@ -190,3 +188,279 @@ function comprobarIBAN(iban) {
 
     return valido;
 }
+
+
+
+function nif(arraycadena) {
+    var cadena = arraycadena[0];
+    var inicionif = new Array("X", "Y", "Z", "L", "K", "M");
+    var control = new Array("T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "S", "Q", "V", "H", "L", "C", "K", "E");
+    var correcto = false;
+    var posicion;
+    var acum = 0;
+    var ceros = false;
+    var dni = false;
+    var codigo;
+    var numero;
+    var dni
+    if (cadena.length <= 8 && cadena.length >= 6) {
+
+        dni = parseInt(cadena);
+        numero = dni.toString();
+        if (cadena.length == numero.length) {
+            codigo = 3;
+            arraycadena[2] = codigo;
+        }
+
+    } else {
+
+
+        if (cadena.length == 9) {
+
+            if (cadena.charAt(0) == inicionif.indexOf(cadena.charAt(0))) {
+                correcto = true;
+                posicion = i;
+
+            }
+
+            if (correcto) {
+
+                acum = parseInt(posicion + cadena.substring(1, 8));
+            }
+            else {
+                acum = parseInt(cadena.substring(0, 8));
+                dni = true;
+            }
+
+            posicion = acum % 23;
+
+            if (control[posicion] == cadena.charAt(8)) {
+                if (dni) {
+                    codigo = 1;
+
+                } else {
+                    codigo = 1;
+                }
+                arraycadena[1] = cadena;
+                arraycadena[2] = codigo;
+            }
+            else {
+                if (ceros) {
+                    codigo = 0;
+                    arraycadena[2] = codigo;
+                } else {
+                    arraycadena[1] = cadena.substring(0, 8) + control[posicion] ;
+
+                    codigo = 2;
+                    arraycadena[2] = codigo;
+                }
+            }
+        }
+        else {
+            codigo = 0;
+            arraycadena[2] = codigo;
+        }
+
+
+        arraycadena[2] = codigo;
+
+        return codigo;
+
+
+    }
+}
+function cif(arraycadena) {
+
+        var cadena = arraycadena[0].toUpperCase();
+        var controlNum = new Array("A","B","C","D","E","F","G","H","J","U","V"); //ABCDEFGHJUV
+        var controlLetra = new Array("N","P","Q","R","S","W"); //NPQRSW
+        var controlValores = new Array("J","A","B","C","D","E","F","G","H","I");
+        var control;
+        var esNum = false;
+        var esLetra = false;
+        var numeros = new Array("0","1","2","3","4","5","6","7","8","9");
+        var cadenaNum = "";
+        var contador = 0;
+        var suma = 0;
+        var str;
+        var valor;
+
+
+        if (cadena.length == 9) {
+            for (var i = 0; i < controlNum.length && !esNum; i++) {
+                if (cadena.charAt(0) == controlNum[i]) {
+                    esNum = true;
+                }
+            }
+            if (!esNum) {
+                for (var i = 0; i < controlLetra.length && !esLetra; i++) {
+                    if (cadena.charAt(0) == controlLetra[i]) {
+                        esLetra = true;
+                    }
+                }
+            }
+            if (esNum || esLetra) {
+                cadenaNum = cadena.substring(1, 8);
+                for (var i = 0; i < cadenaNum.length; i++) {
+                    for (var j = 0; j < numeros.length; j++) {
+                        if (cadenaNum[i] == numeros[j]) {
+                            contador++;
+                        }
+                    }
+                }
+                if (contador == cadenaNum.length) {
+                    for (var i = 1; i < cadenaNum.length; i += 2) {
+                        suma += parseInt(cadenaNum[i]);
+                    }
+                    for (var i = 0; i < cadenaNum.length; i += 2) {
+                        str = (parseInt(cadenaNum[i]) * 2).toString();
+                        if (str.length == 1) {
+                            suma += (parseInt(cadenaNum[i]) * 2);
+                        } else {
+                            for (var j = 0; j < str.length; j++) {
+                                suma += parseInt(str.charAt(j));
+                            }
+                        }
+                    }
+                    control = 10 - suma % 10;
+                    if (control == 10) {
+                        control = 0;
+                    }
+                    if (esNum) {
+                        if (control.toString() == cadena.charAt(8)) {
+
+                            valor = 1;
+                        } else {
+                            arraycadena[1]=cadena.substring(0,8)+control.toString();
+                            valor = 2;
+                        }
+                    } else {
+                        if (controlValores[control]== cadena.charAt(8)) {
+
+                            valor = 1;
+                        } else {
+                            arraycadena[1]=cadena.substring(0,8)+controlValores[control];
+                            valor = 2;
+                        }
+                    }
+                } else {
+
+                    valor = 0;
+                }
+            } else {
+
+                valor = 0;
+            }
+        } else {
+
+            valor = 0;
+        }
+        arraycadena[2]=valor;
+        return valor
+    }
+function nifcif(arraycadena) {
+        var cadena = arraycadena[0];
+        var cifcadena = "ABCDEFGHJUVNPQRSW";
+        var c = false;
+        var validacion;
+        var letra = "c"
+
+        for (var i = 0; i < cifcadena.length; i++) {
+            if (cadena.charAt(0) == cifcadena.charAt(i)) {
+                c = true
+            }
+        }
+
+        if (c) {
+            validacion = letra + cif(cadena);
+        } else {
+            letra = "n";
+            validacion = letra + nif(cadena);
+        }
+
+
+        return validacion;
+    }
+
+
+    function nifc() {
+
+        var cadena = new Array();
+        var correcto;
+        cadena[0] = prompt("Introduzca el NIF o DNI").toUpperCase();
+
+        correcto = nif(cadena);
+
+        if (correcto == 0) {
+            alert("Dato no valido")
+        }
+        if (correcto == 1) {
+            alert("Se ha introducido un NIF correcto.")
+        }
+        if (correcto == 2) {
+            alert("Se ha introducido un NIF erroneo. El caracter de control es erroneo.")
+
+        }
+        if (correcto == 3) {
+            alert("Se ha introducido un DNI correcto")
+        }
+        alert(cadena[0]+","+cadena[1]);
+
+    }
+
+    function cifc() {
+
+        var cadena = new Array();
+        var correcto;
+        cadena[0] = prompt("Introduzca el CIF").toUpperCase();
+
+        correcto = cif(cadena);
+
+        if (correcto == 0) {
+            alert("Dato no valido")
+        }
+        if (correcto == 1) {
+            alert("Se ha introducido un CIF correcto.")
+        }
+        if (correcto == 2) {
+            alert("Se ha introducido un CIF erroneo. El caracter de control es erroneo.")
+        }
+        alert(cadena[0]+","+cadena[1]);
+
+    }
+
+    function cifnifc() {
+
+        var cadena=new Array();
+        var correcto;
+        cadena[0] = prompt("Introduzca el documento");
+
+        correcto = nifcif(cadena);
+
+        if (correcto == "c0" || correcto == "n0") {
+            alert("Dato no valido")
+        }
+        if (correcto == "c1") {
+            alert("Se ha introducido un CIF correcto.")
+        }
+        if (correcto == "c2") {
+            alert("Se ha introducido un CIF erroneo. El caracter de control es erroneo.")
+        }
+
+        if (correcto == "n1") {
+            alert("Se ha introducido un NIF correcto.")
+        }
+        if (correcto == "n2") {
+            alert("Se ha introducido un NIF erroneo. El caracter de control es erroneo.")
+        }
+        if (correcto == "n3") {
+            alert("Se ha introducido un DNI correcto")
+        }
+
+
+    }
+
+
+
+
+
