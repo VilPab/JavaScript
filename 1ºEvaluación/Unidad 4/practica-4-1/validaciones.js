@@ -455,7 +455,7 @@ function nifcif(arraycadena) {
             alert("Se ha introducido un NIF correcto.")
         }
         if (correcto == "n2") {
-            alert("Se ha introducido un NIF erroneo. El caracter de control es erroneo.")
+            alert("Se ha introducido un NIF erroneo El caracter de control es erroneo.")
             alert(cadena[0]+","+cadena[1]);
         }
         if (correcto == "n3") {
