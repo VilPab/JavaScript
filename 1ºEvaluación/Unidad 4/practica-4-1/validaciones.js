@@ -194,7 +194,7 @@ function comprobarIBAN(iban) {
 function nif(arraycadena) {
     var cadena = arraycadena[0];
     var inicionif = new Array("X", "Y", "Z", "L", "K", "M");
-    var control = new Array("T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "S", "Q", "V", "H", "L", "C", "K", "E");
+    var control = new Array("T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E");
     var correcto = false;
     var posicion;
     var acum = 0;
@@ -360,25 +360,25 @@ function cif(arraycadena) {
     }
 function nifcif(arraycadena) {
         var cadena = arraycadena[0];
-        var cifcadena = "ABCDEFGHJUVNPQRSW";
+        var cifcadena = new Array("A","B","C","D","E","F","G","H","J","U","V","N","P","Q","R","S","W");
         var c = false;
         var validacion;
         var letra = "c"
 
         for (var i = 0; i < cifcadena.length; i++) {
-            if (cadena.charAt(0) == cifcadena.charAt(i)) {
+            if (cadena.charAt(0) == cifcadena[i]) {
                 c = true
             }
         }
 
         if (c) {
-            validacion = letra + cif(cadena);
+            validacion = letra + cif(arraycadena);
         } else {
             letra = "n";
-            validacion = letra + nif(cadena);
+            validacion = letra + nif(arraycadena);
         }
 
-
+    arraycadena[2]=validacion;
         return validacion;
     }
 
@@ -399,12 +399,13 @@ function nifcif(arraycadena) {
         }
         if (correcto == 2) {
             alert("Se ha introducido un NIF erroneo. El caracter de control es erroneo.")
-
+            alert(cadena[0]+","+cadena[1]);
         }
         if (correcto == 3) {
             alert("Se ha introducido un DNI correcto")
         }
-        alert(cadena[0]+","+cadena[1]);
+
+
 
     }
 
@@ -424,14 +425,16 @@ function nifcif(arraycadena) {
         }
         if (correcto == 2) {
             alert("Se ha introducido un CIF erroneo. El caracter de control es erroneo.")
+            alert(cadena[0]+","+cadena[1]);
         }
-        alert(cadena[0]+","+cadena[1]);
+
 
     }
 
     function cifnifc() {
 
         var cadena=new Array();
+
         var correcto;
         cadena[0] = prompt("Introduzca el documento");
 
@@ -445,6 +448,7 @@ function nifcif(arraycadena) {
         }
         if (correcto == "c2") {
             alert("Se ha introducido un CIF erroneo. El caracter de control es erroneo.")
+            alert(cadena[0]+","+cadena[1]);
         }
 
         if (correcto == "n1") {
@@ -452,6 +456,7 @@ function nifcif(arraycadena) {
         }
         if (correcto == "n2") {
             alert("Se ha introducido un NIF erroneo. El caracter de control es erroneo.")
+            alert(cadena[0]+","+cadena[1]);
         }
         if (correcto == "n3") {
             alert("Se ha introducido un DNI correcto")
