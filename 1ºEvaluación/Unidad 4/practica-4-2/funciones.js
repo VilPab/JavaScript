@@ -13,15 +13,18 @@ function añadir() {
 
 }
 function buscar() {
+    var posicion= new Array();
     var nombre=prompt("Introduce un nombre");
     var encontrado=false;
     for (var i = 0; i < nombres.length; i++) {
        if(nombre.indexOf(nombres[i])!=-1){
            encontrado=true;
+           posicion.push(i);
        }
     }
     if(encontrado){
         alert("El nombre "+nombre+" existe");
+        return posicion;
     }else{
         alert("El nombre "+nombre+" no existe");
     }
@@ -57,6 +60,7 @@ function palabraLarga() {
 }
 function palabraCorta() {
     var posicion,min=255;
+
     for (var i = 0; i < nombres.length; i++) {
 
         if (nombres[i].length<min) {
@@ -67,5 +71,14 @@ function palabraCorta() {
 
     }
     alert("El minimo con "+min+" letras es "+nombres[posicion]);
+
+}
+function borrar() {
+    var posiciones = buscar()
+    for(var i =0;i<posiciones.length;i++){
+        nombres.splice(posiciones[i],1);
+        i=i-1;
+    }
+
 
 }
