@@ -74,11 +74,87 @@ function palabraCorta() {
 
 }
 function borrar() {
-    var posiciones = buscar()
-    for(var i =0;i<posiciones.length;i++){
-        nombres.splice(posiciones[i],1);
-        i=i-1;
+    var nombre = prompt("Introduce un nombre");
+    for (var i = 0; i < nombres.length; i++) {
+        if (nombres[i].indexOf(nombre)) {
+            nombres.splice(nombres[i], 1);
+            i = i - 1;
+        }
+    }
+}
+function comparar() {
+
+    var enc=false;
+
+    var cont1=0;
+
+    var aux=prompt("Introducir nombre a buscar");
+
+    for(var i=0; i<nombres.length&&!enc;i++){
+
+        if (aux==nombres[i]) {
+
+            enc=true;
+
+            cont1=cont1+1;
+
+        }else{
+
+            cont1=cont1+1;
+
+        }
+
     }
 
+    var cont2=0;
+
+    var arrNom1=nombres;
+
+    arrNom1.sort();
+
+    var inicio = 0;
+
+    var final1 = arrNom1.length - 1;
+
+    var enc1=false;
+
+    while((inicio<=final1)&&(!enc1)) {
+
+        var medio=Math.floor((inicio + final1)/2);
+
+        var aux1=nombres[medio];
+
+        if(aux1==aux){
+
+            enc1=true;
+
+        }
+
+        if(aux1>aux){
+
+            final1=medio-1;
+
+        } else {
+
+            inicio=medio+1;
+
+        }
+
+        cont2=cont2+1;
+
+    }
+
+    if((enc)&&(enc1)){
+
+        alert("Busqueda secuencial: "+cont1+" pasos");
+
+        alert("Busqueda dicotomica: "+cont2+" pasos");
+
+    }else{
+
+        alert("No se ha encontrado");
+
+    }
 
 }
+
