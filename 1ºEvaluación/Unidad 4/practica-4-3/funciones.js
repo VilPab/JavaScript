@@ -46,15 +46,18 @@ function generarLibro(pcodigo,ptitulo,pautor,peditorial,pprecio,piva,punidades) 
         var vprecio=libro.precio;
         var viva =libro.iva;
         var vunidades=libro.unidades;
-        var cadena="Codigo:"+vcodigo+", Titulo:"+vtitulo + ", Autor:"+vautor+", Editorial:"+veditorial+", Precio de venta:"+libro.PVP()+", Precio:"+vprecio+", Precio iva:"+viva+", Unidades:"+vunidades;
+        var cadena="Codigo:"+vcodigo+", Titulo:"+vtitulo +
+            ", Autor:"+vautor+", Editorial:"+veditorial+
+            ", Precio de venta:"+libro.PVP()+", Precio:"+vprecio+
+            ", Precio iva:"+viva+", Unidades:"+vunidades;
         return cadena;
+
     }
 
 
     return libro;
 
 }
-
 
 var libro1=generarLibro("1","El viejo y el mar","Hemiway","altaya",10,21,5);
 var libro2=generarLibro("2","El quijote","Cervantes","Espasa",15,0.21,8);
