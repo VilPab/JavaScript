@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="libro.js"></script>
+</head>
+<body>
+<script>
+    var arrayL= new Array();
+
+    var libro1=new lib("Viejoman","Jose","Espasa",parseInt(12),parseInt(21),parseInt(10),"coches","12/12/1992","2012","213123");
+    var libro2=new lib("Mientras llueve","Juan","Espasa",parseInt(20),parseInt(21),parseInt(10),"coches","12/12/1992","2012","213123");
+    var libro3=new lib("En busca de pepe","luis","Espasa",parseInt(15),parseInt(21),parseInt(10),"coches","12/12/1992","2012","213123");
+
+    arrayL.push(libro1);
+    arrayL.push(libro2);
+    arrayL.push(libro3);
+
+    function mostrar() {
+
+    for(var i=0;i<arrayL.length;i++){
+        let cadena=arrayL[i].titulo+","+arrayL[i].unidades+","+arrayL[i].precio;
+        alert(cadena);
+    }
+
+    }
+    function seleccionarLibro() {
+        var selec=prompt("Introduzca el titulo del libro");
+        var posicion=-1;
+        for(var i=0;i<arrayL.length;i++){
+            if(selec.indexOf(arrayL[i].titulo)!=-1) {
+                posicion = i;
+            }
+        }
+        return posicion;
+    }
+
+    function mostrarF() {
+
+        var selec=seleccionarLibro()
+        if(selec==-1){
+            alert("El libro no existe");
+        }else{
+            var fecha=arrayL[selec].fechar();
+            alert(fecha);
+        }
+    }
+    function precio() {
+
+        var selec=seleccionarLibro()
+        if(selec==-1){
+            alert("El libro no existe");
+        }else{
+            var preciov=arrayL[selec].pvp();
+            alert(preciov);
+        }
+
+    }
+    function comprarL() {
+        var selec=seleccionarLibro()
+        if(selec==-1){
+            alert("El libro no existe");
+        }else{
+            let unidades=prompt("Introduzca las unidades a comprar");
+            arrayL[selec].compra(parseInt(unidades));
+            alert("Unidades compradas");
+        }
+    }
+    function iva() {
+        var selec=seleccionarLibro()
+        if(selec==-1){
+            alert("El libro no existe");
+        }else{
+
+            let importe=arrayL[selec].importeIva;
+            alert("Importe de iva:"+importe);
+        }
+    }
+
+
+</script>
+<button onclick="mostrar()">Mostrar</button>
+<button onclick="mostrarF()">Mostrar</button>
+<button onclick="precio()">Precio</button>
+<button onclick="comprarL()">Comprar Unidades</button>
+<button onclick="iva()">Importe iva</button>
+</body>
+</html>
