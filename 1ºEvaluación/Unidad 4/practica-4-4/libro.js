@@ -1,28 +1,34 @@
-function lib(ptitulo,pautor,peditorial,pprecio,piva,punidades,ptema,pfecha,paño) {
+function lib(ptitulo,pautor,peditorial,pprecio,piva,punidades,ptema,pfecha) {
     this.titulo=ptitulo;
     this.autor=pautor;
     this.editorial=peditorial;
-    this.precio=pprecio;
-    this.iva=piva;
-    this.unidades=punidades;
+    this.precio=parseInt(pprecio);
+    this.iva=parseInt(piva);
+    this.unidades=parseInt(punidades);
     this.tema=ptema;
-    this.fecha=new Date(pfecha);
-    this.ano=paño;
+    this.fecha=pfecha;
+
 
 
     this.__defineSetter__("fecha",function (fecha) {
         this.fecha=fecha;
     });
     this.__defineGetter__("fecha",function () {
-        return this.fecha();
+        return this.fecha;
     });
     this.__defineGetter__("ano",function () {
-        return this.ano.getFullYear();
+        return this.fecha.getFullYear();
+    });
+    this.__defineGetter__("tema",function () {
+        return this.tema;
     });
 
+    this.__defineSetter__("tema",function (tema) {
+        this.tema=tema;
+    });
     this.pvp=function () {
 
-        return this.precio+((this.precio*this.iva)/100);
+        return parseFloat(this.precio+((this.precio*this.iva)/100));
     }
 
     this.compra=function (compradas) {
@@ -47,7 +53,7 @@ lib.prototype.isbn="";
 lib.prototype.cotizacionEuro=1.3745;
 
 lib.prototype.__defineGetter__("importeIva",function () {
-    importeIva=parseFloat((lib.precio*lib.iva)/100);
+    importeIva=parseFloat((this.precio*this.iva)/100);
     return importeIva;
 });
 lib.prototype.__defineSetter__("precioDolares",function (precio) {

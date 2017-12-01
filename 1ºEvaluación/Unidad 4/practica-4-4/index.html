@@ -9,13 +9,32 @@
 <script>
     var arrayL= new Array();
 
-    var libro1=new lib("Viejoman","Jose","Espasa",parseInt(12),parseInt(21),parseInt(10),"coches","12/12/1992","2012","213123");
-    var libro2=new lib("Mientras llueve","Juan","Espasa",parseInt(20),parseInt(21),parseInt(10),"coches","12/12/1992","2012","213123");
-    var libro3=new lib("En busca de pepe","luis","Espasa",parseInt(15),parseInt(21),parseInt(10),"coches","12/12/1992","2012","213123");
+    var libro1=new lib("Viejoman","Jose","Espasa",parseInt(12),parseInt(21),parseInt(10),"coches","12/12/1992");
+    var libro2=new lib("Mientras llueve","Juan","Espasa",parseInt(20),parseInt(21),parseInt(10),"coches","12/12/1992");
+    var libro3=new lib("En busca de pepe","luis","Espasa",parseInt(15),parseInt(21),parseInt(10),"coches","12/12/1992");
 
     arrayL.push(libro1);
     arrayL.push(libro2);
     arrayL.push(libro3);
+
+    function crearLibro() {
+        let ptitulo=prompt("Introduzca el titulo del libro");
+        let pautor=prompt("Introduzca el autor del libro");
+        let peditorial=prompt("Introduzca la editorial del libro");
+        let pprecio=prompt("Introduzca el precio del libro");
+        let piva=prompt("Introduzca el iva del libro");
+        let punidades=prompt("Introduzca las unidades del libro");
+        let ptema=prompt("Introduzca el tema del libro");
+        let pfecha=prompt("Introduzca la fecha del libro");
+        let pisbn=prompt("Introduzca el isbn del libro");
+        let fecha = new Date(pfecha);
+        let libro4= new lib(ptitulo,pautor,peditorial,pprecio,piva,punidades,ptema,fecha);
+
+        libro4.isbn=pisbn;
+
+        arrayL.push(libro4);
+
+    }
 
     function mostrar() {
 
@@ -77,13 +96,26 @@
             alert("Importe de iva:"+importe);
         }
     }
+    function fechar() {
+        var selec=seleccionarLibro()
+        if(selec==-1){
+            alert("El libro no existe");
+        }else{
+
+            let importe=arrayL[selec].fechar();
+            alert("Fecha:"+importe);
+        }
+    }
+
 
 
 </script>
 <button onclick="mostrar()">Mostrar</button>
-<button onclick="mostrarF()">Mostrar</button>
+<button onclick="crearLibro()">Crear Libro</button>
 <button onclick="precio()">Precio</button>
 <button onclick="comprarL()">Comprar Unidades</button>
 <button onclick="iva()">Importe iva</button>
+<button onclick="fechar()">Fecha</button>
+
 </body>
 </html>
