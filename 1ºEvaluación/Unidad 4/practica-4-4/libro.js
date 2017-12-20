@@ -65,5 +65,6 @@ lib.prototype.__defineGetter__("precioDolares",function () {
     return this.precioDolares;
 });
 lib.prototype.fechar=function(){
-    return this.fecha.toLocaleString();
+    let dia =this.fecha.toLocaleString();
+    return dia;
 }

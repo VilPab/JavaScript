@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta charset="utf-8">
+	<script type="text/javascript">
+   
+    var nueva;
+	var	intervalo;
+    function cambiar() {
+		
+ 	nueva.location.assign("http//:www.google.es")
+	intervalo=nueva.setTimeout(cambiar1,12000);
+	}
+	function cambiar1() {
+		
+ 	nueva.location.assign("http//:es.yahoo.com")
+	intervalo=nueva.setTimeout(cambiar2,12000);
+	}
+	function cambiar2() {
+		
+ 	nueva.location.assign("http//:www.lycos.com")
+	intervalo=nueva.setTimeout(cambiar3,12000);
+	}
+	function cambiar3() {
+		
+ 	nueva.location.assign("http//:www.hispavista.com")
+	intervalo=nueva.setTimeout(cambiar,12000);
+	}
+   
+   
+	function iniciar(){
+				nueva=window.open("dos.html");
+				intervalo=nueva.setTimeout(cambiar,12000);
+				
+	}
+	function parar () {
+			  clearInterval(intervalo);
+			
+	}
+
+
+</script>
+</head>
+<body>
+
+
+<input type="button" onclick="iniciar()" value="Iniciar"></br>
+<input type="button" onclick="parar()" value="parar"></a>
+
+
+
+</body>
+</html>
+

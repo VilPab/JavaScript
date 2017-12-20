@@ -1,4 +1,5 @@
 class turne {
+    
     constructor(vcodigo,vorigen,vdestino,vmedio,vduracion,vinicio,vk,vp) {
         this._CodigoViaje = vcodigo;
         this._Origen = vorigen;
@@ -56,5 +57,37 @@ class turne {
         precioDia (){
             return this._Precio/this._Duracion;
         }
+
+}
+var arrayT=new Array();
+function mostrar() {
+
+    for (var i = 0; i < arrayT.length; i++) {
+        let cadena = "Codigo:"+arrayT[i].CodigoViaje + ", Origen:" + arrayT[i].Origen + ", Precio Dia:" + arrayT[i].Kilometros;
+        alert(cadena);
+    }
+}
+function añadir() {
+    var vcodigo=prompt("Codigo");
+    var vorigen=prompt("Origen");
+    var vdestino=prompt("Destino");
+    var vmedio=prompt("Medio");
+    var vduracion=prompt("Duracion");
+    var vinicio=prompt("Inicio");
+    var vk=prompt("Kilometros");
+    var vp=prompt("Precio");
+
+
+    var turne1= new turne(vcodigo,vorigen,vdestino,vmedio,vduracion,vinicio,vk,vp);
+
+    arrayT.push(turne1);
+
+
+}
+function cambiarK() {
+    var k= prompt("Kilometros");
+    var c=parseInt(prompt("Codigo"));
+
+    arrayT[0].Kilometros=k;
 
 }

@@ -57,7 +57,7 @@
 
     function mostrarF() {
 
-        var selec=seleccionarLibro()
+        var selec=seleccionarLibro();
         if(selec==-1){
             alert("El libro no existe");
         }else{
@@ -67,7 +67,7 @@
     }
     function precio() {
 
-        var selec=seleccionarLibro()
+        var selec=seleccionarLibro();
         if(selec==-1){
             alert("El libro no existe");
         }else{
@@ -77,7 +77,7 @@
 
     }
     function comprarL() {
-        var selec=seleccionarLibro()
+        var selec=seleccionarLibro();
         if(selec==-1){
             alert("El libro no existe");
         }else{
@@ -87,7 +87,7 @@
         }
     }
     function iva() {
-        var selec=seleccionarLibro()
+        var selec=seleccionarLibro();
         if(selec==-1){
             alert("El libro no existe");
         }else{
@@ -96,8 +96,8 @@
             alert("Importe de iva:"+importe);
         }
     }
-    function fechar() {
-        var selec=seleccionarLibro()
+    function fecha() {
+        var selec=seleccionarLibro();
         if(selec==-1){
             alert("El libro no existe");
         }else{
@@ -115,7 +115,7 @@
 <button onclick="precio()">Precio</button>
 <button onclick="comprarL()">Comprar Unidades</button>
 <button onclick="iva()">Importe iva</button>
-<button onclick="fechar()">Fecha</button>
+<button onclick="fecha()">Fecha</button>
 
 </body>
 </html>

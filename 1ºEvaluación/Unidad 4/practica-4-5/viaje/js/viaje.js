@@ -1,6 +1,7 @@
 function generarViaje(vcodigo,vorigen,vdestino,vmedio,vduracion,vinicio,vk,vp) {
 
     var viaje = new Object()
+
     viaje.CodigoViaje = vcodigo;
     viaje.Origen = vorigen;
     viaje.Destino = vdestino;
