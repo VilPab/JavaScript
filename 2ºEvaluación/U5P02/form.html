@@ -3,7 +3,7 @@
 <head>
     <meta name="author" content="crish" />
     <meta charset="utf-8" />
-    <title>Práctica 5-1 </title>
+    <title>Práctica 5-2 </title>
     <style type="text/css">
         body {
             background-color:blue;
@@ -19,38 +19,33 @@
     <script type="text/javascript">
 
     </script>
-    <script src="funciones.js" type="text/javascript"> </script>
+    <script src="validaciones.js"type="text/javascript"></script>
 </head>
-<body onkeyup="pulsado(event)">
-<form name="primero" >
+<nav>
+
+</nav>
+<body>
+<form name="formulario" method="get" >
 
 
     <div>
         <label for="nombre">Razón Social/Apellidos y Nombre</label>
-        <input type="text" name="nombre"
-               onfocus="activar(this)"
-               onblur="desactivar(this)"
-        /> <br />
+        <input type="text" name="nombre"/>
+        <br />
         <label for="codigo">Código de la Empresa</label>
-        <input type="text" name="codigo"
-               onfocus="activar(this)"
-               onblur="desactivar(this)"
-               onkeypress="return soloLetras(event)"
-        /> <br />
+        <input type="text" id="codigo" name="codigo"/>
+        <br />
         <label for="nif">CIF/NIF</label>
-        <input type="text" name="nif"
-               onfocus="activar(this)"
-               onblur="desactivar(this)"
-               onkeypress="return soloLetras(event)"
-        /> <br />
+        <input type="text" name="nif"/>
+        <br />
 
     </div>
     <br />
     <div>
         <fieldset>
             <legend>Tipo de persona</legend>
-            <input type="radio" value="juridica" name="tipo" onclick="fotoProvincia(this)"/> Juridica
-            <input type="radio" value="fisica" name="tipo" onclick="fotoProvincia(this)"/> Fisica </br>
+            <input type="radio" value="juridica" name="tipo" /> Juridica
+            <input type="radio" value="fisica" name="tipo"/> Fisica </br>
         </fieldset>
 
     </div>
@@ -59,34 +54,21 @@
     <div>
         <fieldset class="domicilio">
             <legend>Domicilio Social/Particular</legend>
-            <label for="nombre">Direccion</label>
-            <input type="text" name="nombre"
-                   onfocus="activar(this)"
-                   onblur="desactivar(this)"
-            />
-            <label for="codigo">Telefono</label>
-            <input type="text" name="codigo"
-                   onfocus="activar(this)"
-                   onblur="desactivar(this)"
-                   onkeypress="return soloLetras(event)"
-            /> <br />
-            <label for="nif">Localidad</label>
-            <input type="text" name="nif"
-                   onfocus="activar(this)"
-                   onblur="desactivar(this)"
-                   onkeypress="return soloLetras(event)"
-            />
-            <label for="nombre">Código Postal</label>
-            <input type="text" name="nombre"
-                   onfocus="activar(this)"
-                   onblur="desactivar(this)"
-            /> <br />
-            <label for="codigo">Provincia</label>
-            <input type="text" name="codigo"
-                   onfocus="activar(this)"
-                   onblur="desactivar(this)"
-                   onkeypress="return soloLetras(event)"
-            />
+
+            <label for="direccion">Direccion</label>
+            <input type="text" name="direccion"/>
+
+            <label for="telefono">Telefono</label>
+            <input type="number" name="telefono" />
+            <br />
+            <label for="localidad">Localidad</label>
+            <input type="text" name="localidad" />
+
+            <label for="codigoPostal">Código Postal</label>
+            <input type="text" name="codigoPostal" />
+            <br />
+            <label for="provincia">Provincia</label>
+            <input type="text" name="provincia" />
 
            <br />
         </fieldset>
@@ -95,87 +77,65 @@
     <br />
     <div>
         <fieldset class="domicilio">
-            <legend>Domicilio Social/Particular</legend>
-            <label for="nombre">Direccion</label>
-            <input type="text" name="nombre"
-                   onfocus="activar(this)"
-                   onblur="desactivar(this)"
-            />
-            <label for="codigo">Telefono</label>
-            <input type="text" name="codigo"
-                   onfocus="activar(this)"
-                   onblur="desactivar(this)"
-                   onkeypress="return soloLetras(event)"
-            /> <br />
-            <label for="nif">Localidad</label>
-            <input type="text" name="nif"
-                   onfocus="activar(this)"
-                   onblur="desactivar(this)"
-                   onkeypress="return soloLetras(event)"
-            />
-            <label for="nombre">Código Postal</label>
-            <input type="text" name="nombre"
-                   onfocus="activar(this)"
-                   onblur="desactivar(this)"
-            /> <br />
-            <label for="codigo">Provincia</label>
-            <input type="text" name="codigo"
-                   onfocus="activar(this)"
-                   onblur="desactivar(this)"
-                   onkeypress="return soloLetras(event)"
-            />
-            <label for="codigo">Fax</label>
-            <input type="text" name="codigo"
-                   onfocus="activar(this)"
-                   onblur="desactivar(this)"
-                   onkeypress="return soloLetras(event)"
-            />
+            <legend>Domicilio a efectos de notificación</legend>
+            <label for="direccionN">Direccion</label>
+            <input type="text" name="direccionN" />
+
+            <label for="telefonoN">Telefono</label>
+            <input type="number" name="telefonoN"/>
+            <br />
+
+            <label for="localidadN">Localidad</label>
+            <input type="text" name="localidadN" />
+
+            <label for="codigoPostalN">Código Postal</label>
+            <input type="text" name="codigoPostalN"/>
+            <br />
+
+            <label for="provinciaN">Provincia</label>
+            <input type="text" name="provinciaN"/>
+
+            <label for="fax">Fax</label>
+            <input type="number" name="fax"/>
 
             <br />
         </fieldset>
     </div>
-        <label for="nombre">Fecha de Constitución de la empresa</label>
-        <input type="text" name="nombre"
-               onfocus="activar(this)"
-               onblur="desactivar(this)"
-        /> <br />
+        <label for="constitucion">Fecha de Constitución de la empresa</label>
+        <input type="text" name="constitucion"/>
+        <br />
 
         <div>
             <fieldset class="sector">
                 <legend>Aficiones</legend>
-                <input type="checkbox" value="Alimetacion" name="Alimetacion" onClick="if(this.checked == true){chkboxAñadir(this)}else{chkboxQuitar(this)}"/> Alimetacion
-                <span class="par"><input type="checkbox"  value="Informatica" name="Informatica" onClick="if(this.checked == true){chkboxAñadir(this)}else{chkboxQuitar(this)}" /> Informatica </span>
-                <input type="checkbox" value="Comercio" name="Comercio" onClick="if(this.checked == true){chkboxAñadir(this)}else{chkboxQuitar(this)}"/>Comercio
-                <span class="par"><input type="checkbox" value="Hosteleria" name="Hosteleria" onClick="if(this.checked == true){chkboxAñadir(this)}else{chkboxQuitar(this)}"/> Hosteleria  </span>
-                <input type="checkbox" value="Automocion" name="Automocion" onClick="if(this.checked == true){chkboxAñadir(this)else{chkboxQuitar(this)}"}/> Automocion
-                <span class="par"><input type="checkbox" value="Calzado" name="Calzado" onClick="if(this.checked == true){chkboxAñadir(this)}else{chkboxQuitar(this)}"/> Calzado</span>
-                <input type="checkbox" value="Turismo" name="Turismo" onClick="if(this.checked == true){chkboxAñadir(this)}else{chkboxQuitar(this)}"/> Turismo
-                <span class="par"><input type="checkbox"  value="Agricultura" name="Agricultura" onClick="if(this.checked == true){chkboxAñadir(this)}else{chkboxQuitar(this)}" /> Agricultura </span>
-                <input type="checkbox" value="Ganaderia" name="Ganaderia" onClick="if(this.checked == true){chkboxAñadir(this)}else{chkboxQuitar(this)}"/> Ganaderia
-                <span class="par"><input type="checkbox" value="Otros" name="Otros" onClick="if(this.checked == true){chkboxAñadir(this)}else{chkboxQuitar(this)}"/> Otros </span>
-                <input type="checkbox" value="Construccion" name="Construccion" onClick="if(this.checked == true){chkboxAñadir(this)}else{chkboxQuitar(this)}"/>Construccion
+                <input type="checkbox" value="Alimetacion" name="Alimetacion" /> Alimetacion
+                <span class="par"><input type="checkbox"  value="Informatica" name="Informatica" /> Informatica </span>
+                <input type="checkbox" value="Comercio" name="Comercio" />Comercio
+                <span class="par"><input type="checkbox" value="Hosteleria" name="Hosteleria" /> Hosteleria  </span>
+                <input type="checkbox" value="Automocion" name="Automocion" /> Automocion
+                <span class="par"><input type="checkbox" value="Calzado" name="Calzado"/> Calzado</span>
+                <input type="checkbox" value="Turismo" name="Turismo"/> Turismo
+                <span class="par"><input type="checkbox"  value="Agricultura" name="Agricultura" /> Agricultura </span>
+                <input type="checkbox" value="Ganaderia" name="Ganaderia" /> Ganaderia
+                <span class="par"><input type="checkbox" value="Otros" name="Otros" /> Otros </span>
+                <input type="checkbox" value="Construccion" name="Construccion" />Construccion
             </fieldset>
 
         </div>
-    <label for="nombre">Numero de Trabajadores de la empresa</label>
-    <input type="text" name="nombre"
-           onfocus="activar(this)"
-           onblur="desactivar(this)"
-    />
-    <label for="nombre">Numero de Fabricas de la empresa</label>
-    <input type="text" name="nombre"
-           onfocus="activar(this)"
-           onblur="desactivar(this)"
-    /><br />
+    <label for="numeroT">Numero de Trabajadores de la empresa</label>
+    <input type="number" name="numeroT"/>
+    <label for="numeroF">Numero de Fabricas de la empresa</label>
+    <input type="number" name="numeroF" />
+    <br />
     <div>
         <fieldset>
             <legend>Numero de trabajadores por Empresa</legend>
-            <input type="radio" value="10" name="numero" onclick="fotoProvincia(this)"/> menos de 10
-            <input type="radio" value="10-25" name="numero" onclick="fotoProvincia(this)"/> de 10 a 25
-            <input type="radio" value="26-75" name="numero" onclick="fotoProvincia(this)"/> de 26 a 75
-            <input type="radio" value="76-150" name="numero" onclick="fotoProvincia(this)"/> de 76 a 150
-            <input type="radio" value="151-300" name="numero" onclick="fotoProvincia(this)"/> de 151 a 300
-            <input type="radio" value="301" name="numero" onclick="fotoProvincia(this)"/> mas de 300
+            <input type="radio" value="10" name="numeroTE"/> menos de 10
+            <input type="radio" value="10-25" name="numeroTE" /> de 10 a 25
+            <input type="radio" value="26-75" name="numeroTE"/> de 26 a 75
+            <input type="radio" value="76-150" name="numeroTE"/> de 76 a 150
+            <input type="radio" value="151-300" name="numeroTE"/> de 151 a 300
+            <input type="radio" value="301" name="numeroTE"/> mas de 300
 
         </fieldset>
 
@@ -183,12 +143,12 @@
     <div>
         <fieldset>
             <legend>Tipo de empresa</legend>
-            <input type="radio" value="sa" name="tipoe" onclick="fotoProvincia(this)"/> S.A.
-            <input type="radio" value="sl" name="tipoe" onclick="fotoProvincia(this)"/> S.L.
-            <input type="radio" value="sal" name="tipoe" onclick="fotoProvincia(this)"/> S.A.L
-            <input type="radio" value="coop" name="tipoe" onclick="fotoProvincia(this)"/> Cooperativa
-            <input type="radio" value="auto" name="tipoe" onclick="fotoProvincia(this)"/> Autonomo
-            <input type="radio" value="otros" name="tipoe" onclick="fotoProvincia(this)"/> Otros
+            <input type="radio" value="sa" name="tipoe"/> S.A.
+            <input type="radio" value="sl" name="tipoe" /> S.L.
+            <input type="radio" value="sal" name="tipoe" /> S.A.L
+            <input type="radio" value="coop" name="tipoe" /> Cooperativa
+            <input type="radio" value="auto" name="tipoe" /> Autonomo
+            <input type="radio" value="otros" name="tipoe" /> Otros
 
         </fieldset>
 
