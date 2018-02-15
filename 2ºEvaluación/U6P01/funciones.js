@@ -5,8 +5,12 @@ else{
 }
 
 function inicial() {
-    var boton = document.getElementById("add")
+    var boton = document.getElementById("add");
+    var boton1= document.getElementById("addL")
+    var boton2= document.getElementById("addC")
     boton.addEventListener("click", añadir_def);
+    boton1.addEventListener("click", añadir_loc);
+    boton2.addEventListener("click", añadir_coche);
 }
 function añadir_def() {
     //acceder a la lista
@@ -30,4 +34,115 @@ function añadir_def() {
     //añadir la defincion
     padre.appendChild(dd_lista);
 
+}
+
+function añadir_loc() {
+    //acceder a la lista
+    var padre=document.getElementById("listaL");
+    var hijos=padre.getElementsByTagName("li");
+    var li;
+    var dato;
+    var valor=document.getElementById("localidad").value;
+
+    var esta=false;
+    var posicion=-1;
+
+
+    var i=0;
+    while(i<hijos.length && posicion==-1){
+        if(hijos[i].textContent==valor){
+           esta=true;
+        }else{
+        if(hijos[i].textContent>valor) {
+            posicion = i;
+        }
+        }
+        i++;
+    }
+
+    if(!esta){
+        li=document.createElement("li");
+        dato=document.createTextNode(valor);
+        li.appendChild(dato);
+        padre.insertBefore(li,hijos[posicion])
+    }
+
+
+
+}
+function añadir_coche() {
+    var body= document.querySelector("#tabla tbody");
+    var hijos = body.getElementsByTagName("tr");
+
+    var celdas;
+    var tr;
+    var dato,dato1,dato2;
+    var marca = document.getElementById("marca").value;
+    var modelo = document.getElementById("modelo").value;
+    var precio = document.getElementById("precio").value;
+
+    var posicion = -1;
+    var i=1;
+    var primero=0;
+
+
+
+    while (posicion == -1 && hijos.length!=0) {
+
+        var marcav = body.rows[i].getElementsByTagName("td")[0].innerHTML;
+        var modelov = body.rows[i].getElementsByTagName("td")[1].innerHTML;
+        if (marcav.textContent == marca) {
+            if (marcav[1].textContent > modelo) {
+                posicion = i;
+            }
+
+        } else {
+            posicion = i;
+
+
+        }
+        i++;
+    }
+    if(posicion!=-1){
+        tr=document.createElement("tr");
+        var tmarca=document.createElement("td");
+        var tmodelo=document.createElement("td");
+        var tprecio=document.createElement("td");
+
+        dato=document.createTextNode(marca);
+        dato1=document.createTextNode(modelo);
+        dato2=document.createTextNode(precio);
+
+        tmarca.appendChild(dato);
+        tmodelo.appendChild(dato1);
+        tprecio.appendChild(dato2);
+
+        tr.appendChild(tmarca);
+        tr.appendChild(tmodelo);
+        tr.appendChild(tprecio);
+
+        body.insertBefore(tr,hijos[posicion]);
+
+    }
+    if(primero==0){
+        tr=document.createElement("tr");
+        var tmarca=document.createElement("td");
+        var tmodelo=document.createElement("td");
+        var tprecio=document.createElement("td");
+
+        dato=document.createTextNode(marca);
+        dato1=document.createTextNode(modelo);
+        dato2=document.createTextNode(precio);
+
+        tmarca.appendChild(dato);
+        tmodelo.appendChild(dato1);
+        tprecio.appendChild(dato2);
+
+        tr.appendChild(tmarca);
+        tr.appendChild(tmodelo);
+        tr.appendChild(tprecio);
+
+        body.insertBefore(tr,hijos[0]);
+    primero++;
+    }
 }
