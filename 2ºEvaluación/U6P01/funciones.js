@@ -71,8 +71,10 @@ function añadir_loc() {
 
 }
 function añadir_coche() {
-    var body= document.querySelector("#tabla tbody");
-    var hijos = body.getElementsByTagName("tr");
+
+    var hijo=document.querySelector("#tabla tbody");
+
+    var todos=hijo.getElementsByTagName("tr");
 
     var celdas;
     var tr;
@@ -80,24 +82,34 @@ function añadir_coche() {
     var marca = document.getElementById("marca").value;
     var modelo = document.getElementById("modelo").value;
     var precio = document.getElementById("precio").value;
-
+    var esta=true;
     var posicion = -1;
-    var i=1;
+    var i=0;
     var primero=0;
 
 
 
-    while (posicion == -1 && hijos.length!=0) {
+    while ( i<todos.length) {
 
-        var marcav = body.rows[i].getElementsByTagName("td")[0].innerHTML;
-        var modelov = body.rows[i].getElementsByTagName("td")[1].innerHTML;
-        if (marcav.textContent == marca) {
-            if (marcav[1].textContent > modelo) {
+        var marcav = todos[i].getElementsByTagName("td");
+        if (marcav[0].textContent == marca) {
+            if (marcav[1].textContent < modelo) {
+                posicion = i+1;
+                esta=false;
+            }else{
                 posicion = i;
+                esta=false;
             }
 
         } else {
-            posicion = i;
+            if(marcav[0]<marca){
+                posicion=i+1;
+                esta=false;
+            }else{
+                posicion=i;
+                esta=false;
+            }
+
 
 
         }
@@ -121,10 +133,11 @@ function añadir_coche() {
         tr.appendChild(tmodelo);
         tr.appendChild(tprecio);
 
-        body.insertBefore(tr,hijos[posicion]);
+        hijo.insertBefore(tr,todos[posicion]);
 
     }
-    if(primero==0){
+
+    if(esta){
         tr=document.createElement("tr");
         var tmarca=document.createElement("td");
         var tmodelo=document.createElement("td");
@@ -142,7 +155,8 @@ function añadir_coche() {
         tr.appendChild(tmodelo);
         tr.appendChild(tprecio);
 
-        body.insertBefore(tr,hijos[0]);
-    primero++;
+        hijo.appendChild(tr);
+
     }
+
 }
