@@ -1,13 +1,14 @@
 window.onload=bienvenida;
 function bienvenida() {
 	alert("Bienvenido al Formulario");
-}
 
+}
 function activar(elemento){
 	elemento.value="";
 	elemento.style.backgroundColor="red";
 	elemento.style.color="white";
 }
+
 
 function desactivar(elemento){
 	elemento.style.backgroundColor="white";

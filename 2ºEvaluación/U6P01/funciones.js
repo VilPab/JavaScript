@@ -6,11 +6,14 @@ else{
 
 function inicial() {
     var boton = document.getElementById("add");
-    var boton1= document.getElementById("addL")
-    var boton2= document.getElementById("addC")
+    var boton1= document.getElementById("addL");
+    var boton2= document.getElementById("addC");
+    var boton3= document.getElementById("comunidad");
     boton.addEventListener("click", añadir_def);
     boton1.addEventListener("click", añadir_loc);
     boton2.addEventListener("click", añadir_coche);
+    boton3.addEventListener("change", provincias);
+
 }
 function añadir_def() {
     //acceder a la lista
@@ -89,7 +92,7 @@ function añadir_coche() {
 
 
 
-    while ( i<todos.length) {
+    while (i<todos.length) {
 
         var marcav = todos[i].getElementsByTagName("td");
         if (marcav[0].textContent == marca) {
@@ -159,4 +162,65 @@ function añadir_coche() {
 
     }
 
+}
+function provincias() {
+var posicion=-1;
+var padre=document.getElementById("provincias");
+var comunidad=document.getElementById("comunidad").value;
+var Andalucia=new Array("Cadiz","Malaga","Huelva","Sevilla","Jaen","Almeria","Cordoba","Granada");
+var Aragon=new Array("Huesca","Zaragoza","Teruel");
+var Asturias=new Array("Asturias");
+var IslasBaleares=new Array("Baleares");
+var PaisVasco=new Array("Vitoria","Bilbao","San Sebastian");
+var Canarias=new Array("Palmas de Gran Canaria","Santa Cruz de Tenerife");
+var Cantabria=new Array("Cantabria");
+var CastillaLaMancha=new Array("Cuenca","Guadalajara","Toledo","Ciudad Real","Albacete");
+var CastillayLeon=new Array("Segovia","Avila","Leon","Valladolid","Soria","Burgos","Palencia","Zamora");
+var Cataluna=new Array("Barcelona", "Tarragona", "Lérida", "Gerona");
+var Extremadura=new Array("Caceres","Badajoz");
+var Galicia=new Array("	La Coruña", "Lugo", "Orense","Pontevedra");
+var Madrid=new Array("Madrid");
+var RegiondeMurcia=new Array("Murcia");
+var Navarra=new Array("Navarra");
+var Rioja=new Array("La Rioja");
+var Valencia=new Array("Castellon","Valencia","Alicante");
+var pValencia="Les gustan los petardos";
+var pMadrid="Ejque";
+var pGalicia="Incendios , PP";
+var pAsturias="vaques y montañes";
+var pCanarias="cubanos con retraso";
+var pAndalucia="Andaluces";
+var pAragon="Hace mucho frio";
+var pIslasBaleares="Catalanes de mar";
+var pPaisVasco="Aupa ai";
+var pCantabria="Buena gente";
+var pCastillaLaMancha="Navajas y secarrales";
+var pCastillayLeon="Se come bien";
+var pCataluna="Independiente";
+var pExtremadura="Paletos";
+var pRegiondeMurcia="Siempre enfadados";
+var pNavarra="Navarricos";
+var pRioja="Viva el vino";
+
+    document.getElementById("comentario").innerHTML="";
+    var elegida=eval(comunidad);
+    var comentario=eval("p"+comunidad);
+    while (padre.firstChild) {
+        padre.removeChild(padre.firstChild);
+    }
+for(var i=0;i<elegida.length;i++) {
+    var option= document.createElement("option");
+    var dato= document.createTextNode(elegida[i]);
+    option.appendChild(dato);
+    padre.appendChild(option);
+
+    }
+  document.getElementById("comentario").innerHTML=comentario;
+
+
+
+
+
+
+    
 }
